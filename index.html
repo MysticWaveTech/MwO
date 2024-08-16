@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radionics Interface</title>
+    <title>INITIATION: CONNECT HARDWARE</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,6 +11,7 @@
             background-color: #00FF00;
             color: #FF0000;
             font-size: 20px;
+            border: 35px solid green;
         }
         .container {
             max-width: 600px;
@@ -19,11 +20,14 @@
             background-color: #FFFF00;
             border-radius: 10px;
             border: 15px solid #000;
+            box-shadow: 40px 40px 100px rgba(255, 0, 0, 0.5); /* Add this line for drop shadow */
         }
         .container h2 {
             text-align: center;
             margin-bottom: 20px;
             font-size: 35px;
+            box-shadow: 40px 40px 100px rgba(255, 0, 0, 0.5); /* Add this line for drop shadow */
+    
         }
         .form-group {
             margin-bottom: 20px;
@@ -36,9 +40,9 @@
         .form-group input[type="text"],
         .form-group input[type="file"],
         .form-group textarea {
-            width: 100%;
+            width: 90%;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 35px solid blue;
             border-radius: 5px;
             background-color: #333;
             color: #FF0000;
@@ -113,28 +117,42 @@
     cursor: pointer; /* Indicate that it's draggable */
     transform-origin: center center; /* Ensure rotation happens around the center */
     transition: transform 0.1s; /* Smooth transformation */
+    float: left;
+    margin-left: 30px;
 }
             
             .intent-input{float: left;}
 
-    
+    .abilities-container img{
+        width: 30px; height: 30px;
+        margin-bottom: -15px;
+    }
     
             </style>
             
-              <div class="knobs-container">
-                    <div class="abilities-container">
+     <div class="abilities-container">
 
 <div class="checkbox-group">
-        <label>Abilities:</label>
-        <label><input type="checkbox" name="ability" value="teleportation"> Teleportation</label>
-        <label><input type="checkbox" name="ability" value="telekinesis"> Telekinesis</label>
-        <label><input type="checkbox" name="ability" value="materialisation"> Materialization</label>
-        <label><input type="checkbox" name="ability" value="shapeshifting"> Shapeshifting</label>
-        <label><input type="checkbox" name="ability" value="invincibility"> Invincibility</label>
+        <label style="font-weight: bold;">Select Ability:</label>
+        <label><input type="checkbox" name="ability" value="teleportation"> Teleportation<img src="https://raw.githubusercontent.com/MysticWaveTech/MwO/main/ai-generated-8635557_1280.png"></label>
+        <label><input type="checkbox" name="ability" value="telekinesis"> Telekinesis<img src="https://raw.githubusercontent.com/MysticWaveTech/MwO/main/fantasy-8037694_1280%20(1).png"></label>
+        <label><input type="checkbox" name="ability" value="materialisation"> Materialization<img src="https://raw.githubusercontent.com/MysticWaveTech/MwO/main/ai-generated-8743711_1280.png"></label>
+        <label><input type="checkbox" name="ability" value="shapeshifting"> Shapeshifting<img src="https://raw.githubusercontent.com/MysticWaveTech/MwO/main/ai-generated-8266689_1280%20(1).jpg"></label>
+        <label><input type="checkbox" name="ability" value="invincibility"> Invincibility <img src="https://raw.githubusercontent.com/MysticWaveTech/MwO/main/ai-generated-8474888_1280.jpg"></label>
     </div>
                         <br style="clear: both;">
     </div>
-                  <div style="margin-left: 35%;>
+    
+       <div class="form-group intent-group">
+        <label for="intent">Intent:</label>
+        <textarea id="intent" name="intent" placeholder="Describe your intent here..."></textarea>
+    </div>
+    
+    
+    
+              <div class="knobs-container">
+                   
+                  <div style="margin-left: 15%;">
         <div class="knob" id="knob1"></div>
         <div class="knob" id="knob2"></div>
         <div class="knob" id="knob3"></div>
@@ -192,10 +210,7 @@
     
     
 
-    <div class="form-group intent-group">
-        <label for="intent">Intent:</label>
-        <textarea id="intent" name="intent" placeholder="Describe your intent here..."></textarea>
-    </div>
+ 
 </div>
 
 <script>
