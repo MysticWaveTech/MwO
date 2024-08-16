@@ -10,6 +10,7 @@
             margin: 20px;
             background-color: #00FF00;
             color: #FF0000;
+            font-size: 20px;
         }
         .container {
             max-width: 600px;
@@ -22,6 +23,7 @@
         .container h2 {
             text-align: center;
             margin-bottom: 20px;
+            font-size: 35px;
         }
         .form-group {
             margin-bottom: 20px;
@@ -122,7 +124,7 @@
               <div class="knobs-container">
                     <div class="abilities-container">
 
-<div class="checkbox-group" style="width: 150px; float: left;>
+<div class="checkbox-group">
         <label>Abilities:</label>
         <label><input type="checkbox" name="ability" value="teleportation"> Teleportation</label>
         <label><input type="checkbox" name="ability" value="telekinesis"> Telekinesis</label>
@@ -130,9 +132,9 @@
         <label><input type="checkbox" name="ability" value="shapeshifting"> Shapeshifting</label>
         <label><input type="checkbox" name="ability" value="invincibility"> Invincibility</label>
     </div>
-                        
+                        <br style="clear: both;">
     </div>
-                  <div style"margin-left: 140px; width: 400px; float: left;">
+                  <div style="margin-left: 35%;>
         <div class="knob" id="knob1"></div>
         <div class="knob" id="knob2"></div>
         <div class="knob" id="knob3"></div>
@@ -143,25 +145,7 @@
         
 
     <script>
-        // Array to store affirmations
-        let affirmations = [];
-
-        // Function to add an affirmation
-        function addAffirmation() {
-            const affirmationInput = document.getElementById('affirmationInput').value;
-            if (affirmationInput.trim() !== '') {
-                affirmations.push(affirmationInput);
-                document.getElementById('affirmationInput').value = '';
-                displayAffirmation();
-            }
-        }
-
-        // Function to display the affirmation subliminally
-        function displayAffirmation() {
-            const affirmationDisplay = document.getElementById('affirmationDisplay');
-            affirmationDisplay.innerText = affirmations.join(' • ');
-        }
-
+        
      document.querySelectorAll('.knob').forEach(knob => {
     let isDragging = false;
     let initialAngle = 0;
