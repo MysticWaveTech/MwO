@@ -84,7 +84,7 @@
 <body>
 
 <div class="container">
-    <h2>Radionics Interface</h2>
+    <h2>MwO Technology</h2>
     <div class="form-group">
         <label for="target-name">Target Name:</label>
         <input type="text" id="target-name" name="target-name" placeholder="Enter target name">
@@ -96,6 +96,106 @@
         <img id="photo-preview" alt="Target Photo Preview">
     </div>
 
+            .knobs-container {
+    display: flex;
+    gap: 10px; /* Adjust spacing between knobs if needed */
+}
+
+.knob {
+    width: 100px;
+    height: 100px;
+    background-image: url('https://raw.githubusercontent.com/MysticWaveTech/SubliminalAffirmatiinsRadionics/main/audio-35447_1280%20(1).png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    cursor: pointer; /* Indicate that it's draggable */
+    transform-origin: center center; /* Ensure rotation happens around the center */
+    transition: transform 0.1s; /* Smooth transformation */
+}
+            
+            .intent-input{float: left;}
+            </style>
+            
+              <div class="knobs-container">
+                    <input type="text" class="intent-input" id="intentInput" placeholder="Enter your intention...">
+             <div class="abilities-container">
+      
+    </div>
+                  
+        <div class="knob" id="knob1"></div>
+        <div class="knob" id="knob2"></div>
+        <div class="knob" id="knob3"></div>
+                  
+                  
+                  
+    </div>
+        </div>
+    </div>
+
+    <script>
+        // Array to store affirmations
+        let affirmations = [];
+
+        // Function to add an affirmation
+        function addAffirmation() {
+            const affirmationInput = document.getElementById('affirmationInput').value;
+            if (affirmationInput.trim() !== '') {
+                affirmations.push(affirmationInput);
+                document.getElementById('affirmationInput').value = '';
+                displayAffirmation();
+            }
+        }
+
+        // Function to display the affirmation subliminally
+        function displayAffirmation() {
+            const affirmationDisplay = document.getElementById('affirmationDisplay');
+            affirmationDisplay.innerText = affirmations.join(' • ');
+        }
+
+     document.querySelectorAll('.knob').forEach(knob => {
+    let isDragging = false;
+    let initialAngle = 0;
+    let currentRotation = 0;
+
+    function startDrag(e) {
+        isDragging = true;
+        e.preventDefault(); // Prevent default touch actions
+        const touch = e.touches ? e.touches[0] : e; // Handle touch or mouse event
+        const rect = knob.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        initialAngle = Math.atan2(touch.clientY - centerY, touch.clientX - centerX);
+    }
+
+    function drag(e) {
+        if (!isDragging) return;
+        const touch = e.touches ? e.touches[0] : e; // Handle touch or mouse event
+        const rect = knob.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const currentAngle = Math.atan2(touch.clientY - centerY, touch.clientX - centerX);
+        const deltaAngle = currentAngle - initialAngle;
+        currentRotation += deltaAngle * (180 / Math.PI);
+        knob.style.transform = `rotate(${currentRotation}deg)`;
+        initialAngle = currentAngle; // Update initialAngle for continuous rotation
+    }
+
+    function endDrag() {
+        isDragging = false;
+    }
+
+    // Add event listeners for mouse
+    knob.addEventListener('mousedown', startDrag);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', endDrag);
+
+    // Add event listeners for touch
+    knob.addEventListener('touchstart', startDrag);
+    document.addEventListener('touchmove', drag);
+    document.addEventListener('touchend', endDrag);
+});
+    </script>
+    
     <div class="checkbox-group">
         <label>Abilities:</label>
         <label><input type="checkbox" name="ability" value="teleportation"> Teleportation</label>
