@@ -84,7 +84,7 @@
 <body>
 
 <div class="container">
-    <h2>MwO Technology</h2>
+    <h2>Multi Wave Oscillator</h2>
     <div class="form-group">
         <label for="target-name">Target Name:</label>
         <input type="text" id="target-name" name="target-name" placeholder="Enter target name">
@@ -115,7 +115,7 @@
             
             .intent-input{float: left;}
 
-    .checkbox-group{margin-left: 140px;}
+    
     
             </style>
             
@@ -132,11 +132,11 @@
     </div>
                         
     </div>
-                  
+                  <div style"margin-left: 140px;">
         <div class="knob" id="knob1"></div>
         <div class="knob" id="knob2"></div>
         <div class="knob" id="knob3"></div>
-                  
+                  </div>
                   
                   
     </div>
@@ -212,8 +212,6 @@
         <label for="intent">Intent:</label>
         <textarea id="intent" name="intent" placeholder="Describe your intent here..."></textarea>
     </div>
-
-    <button class="submit-btn" type="submit">Submit</button>
 </div>
 
 <script>
@@ -226,6 +224,60 @@
         };
     }
 </script>
+<script>
+    let audioContext;
+    let backgroundOscillator;
+    let beepOscillator;
+    let beepIntervalId;
+
+    function startBackgroundAndBeeps() {
+        const backgroundFrequency = 440; // Background frequency in Hz
+        const beepFrequency = 880;       // Beep frequency in Hz
+        const beepInterval = 1000;       // Beep interval in milliseconds
+
+        if (!audioContext) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+
+        // Stop existing oscillators and intervals if any
+        if (backgroundOscillator) {
+            backgroundOscillator.stop();
+        }
+        if (beepIntervalId) {
+            clearInterval(beepIntervalId);
+        }
+
+        // Play background frequency indefinitely
+        backgroundOscillator = audioContext.createOscillator();
+        backgroundOscillator.type = 'sine';
+        backgroundOscillator.frequency.setValueAtTime(backgroundFrequency, audioContext.currentTime);
+        backgroundOscillator.connect(audioContext.destination);
+        backgroundOscillator.start();
+
+        // Play intermittent beeps
+        beepIntervalId = setInterval(() => {
+            beepOscillator = audioContext.createOscillator();
+            beepOscillator.type = 'sine';
+            beepOscillator.frequency.setValueAtTime(beepFrequency, audioContext.currentTime);
+            beepOscillator.connect(audioContext.destination);
+            beepOscillator.start();
+            beepOscillator.stop(audioContext.currentTime + 0.1); // Beep duration (0.1 seconds)
+        }, beepInterval);
+    }
+
+    // Start background sound and beeps when the page loads
+    window.onload = startBackgroundAndBeeps;
+
+    function displayPhoto(event) {
+        const photoPreview = document.getElementById('photo-preview');
+        photoPreview.src = URL.createObjectURL(event.target.files[0]);
+        photoPreview.style.display = 'block';
+        photoPreview.onload = () => {
+            URL.revokeObjectURL(photoPreview.src);
+        };
+    }
+</script>
+    
 
 </body>
 </html>
