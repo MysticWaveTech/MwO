@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INITIATION: CONNECT HARDWARE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #00FF00;
+            color: #FF0000;
+            font-size: 20px;
+            border: 35px solid green;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FFFF00;
+            border-radius: 10px;
+            border: 15px solid #000;
+            box-shadow: 40px 40px 100px rgba(255, 0, 0, 0.5); /* Add this line for drop shadow */
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 35px;
+            box-shadow: 40px 40px 100px rgba(255, 0, 0, 0.5); /* Add this line for drop shadow */
+    
+        }
+
+        .container h2 img{
+width: 100px;
+            height: 100px;
+            margin-top: -25px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="file"],
+        .form-group textarea {
+            width: 90%;
+            padding: 10px;
+            border: 35px solid blue;
+            border-radius: 5px;
+            background-color: #333;
+            color: #FF0000;
+        }
+        .form-group input[type="file"] {
+            padding: 5px;
+        }
+        .form-group img {
+            display: none;
+            margin-top: 10px;
+            max-width: 100%;
+            border-radius: 5px;
+            border: 30px solid #00FF00;
+        }
+        .checkbox-group {
+            margin-bottom: 20px;
+        }
+        .checkbox-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .intent-group textarea {
+            height: 100px;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #FF0000;
+            color: #FFFF00;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 3px solid #00FF00;
+        }
+        .submit-btn:hover {
+            background-color: #b30000;
+        }
+    
+    #target-photo{
+       /* width: 20%; */
+      
+    }
+    
+    #photo-upload{
+            float: right;
+        width:50%;
+        margin-top: -200px;
+        margin-right: -50px;
+    }
+    
+    #target-subject{
+        width: 35%;
+    }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2><img src="https://raw.githubusercontent.com/MysticWaveTech/MwO/main/spiral-2093295_1280.jpg">Multi Wave Oscillator<img src="https://raw.githubusercontent.com/MysticWaveTech/MwO/main/logo-1914020_1280.png"></h2>
+    <br style="clear: both;">
+    
+    <div class="form-group" id="target-subject">
+        <label for="target-name">Target Name:</label>
+        <input type="text" id="target-name" name="target-name" placeholder="Enter target name" style="margin-left: -130px; width: 393px;">
+    </div>
+
+   <div class="form-group" id="photo-upload">
+        <label for="target-photo">Photo (For Witness Well):</label>
+        <input type="file" id="target-photo" name="target-photo" accept="image/*" onchange="displayPhoto(event)">
+        <div id="well">
+        <p>&nbsp; &nbsp; Witness Well</p>
+        <img id="witness-photo" alt="Target Photo Preview">
+            </div>
+    </div>
+<style>
+            .knobs-container {
+    display: flex;
+    gap: 10px; /* Adjust spacing between knobs if needed */
+}
+
+.knob {
+    width: 100px;
+    height: 100px;
+    background-image: url('https://raw.githubusercontent.com/MysticWaveTech/SubliminalAffirmatiinsRadionics/main/audio-35447_1280%20(1).png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    cursor: pointer; /* Indicate that it's draggable */
+    transform-origin: center center; /* Ensure rotation happens around the center */
+    transition: transform 0.1s; /* Smooth transformation */
+    float: left;
+    margin-left: 30px;
+}
+            
+            .intent-input{float: left;}
+
+
+        .abilities-container {
+            height: 200px;
+            width: 250px;
+            background-color: #999999; /* Light gray background color */
+            border: 40px solid #ff0099; /* Black border */
+            border-radius: 10px; /* Optional: rounded corners */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 15px;
+       /*     font-size: 16px;
+            color: #333; */
+        }
+   
+    
+    
+    .abilities-container img{
+        width: 30px; height: 30px;
+        margin-bottom: -15px;
+    }
+    
+        #well{
+      /*  width: 25%; */
+        background-color: #333;
+        margin-top: 10px;
+    /*    border: 50px solid #000; */
+    }
+    
+    #well p {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+            </style>
+              <label style="font-weight: bold;">Select Ability [Trend]:</label>
+     <div class="abilities-container">
+
+<div class="checkbox-group">
+      
+        <label><input type="checkbox" name="ability" value="teleportation"> Teleportation<img src="https://raw.githubusercontent.com/MysticWaveTech/MwO/main/ai-generated-8635557_1280.png"></label>
+        <label><input type="checkbox" name="ability" value="telekinesis"> Telekinesis<img src="https://raw.githubusercontent.com/MysticWaveTech/MwO/main/fantasy-8037694_1280%20(1).png"></label>
+        <label><input type="checkbox" name="ability" value="materialisation"> Materialization<img src="https://raw.githubusercontent.com/MysticWaveTech/MwO/main/ai-generated-8743711_1280.png"></label>
+        <label><input type="checkbox" name="ability" value="shapeshifting"> Shapeshifting<img src="https://raw.githubusercontent.com/MysticWaveTech/MwO/main/ai-generated-8266689_1280%20(1).jpg"></label>
+        <label><input type="checkbox" name="ability" value="invincibility"> Invincibility <img src="https://raw.githubusercontent.com/MysticWaveTech/MwO/main/ai-generated-8474888_1280.jpg"></label>
+    </div>
+                      
+    </div>
+
+      <br style="clear: both;">
+       <div class="form-group intent-group">
+        <label for="intent">Intent [trend]:</label>
+        <textarea id="intent" name="intent" placeholder="Describe your intent here..."></textarea>
+    </div>
+    
+    
+    
+              <div class="knobs-container">
+                   
+                  <div style="margin-left: 15%;">
+        <div class="knob" id="knob1"></div>
+        <div class="knob" id="knob2"></div>
+        <div class="knob" id="knob3"></div>
+                  </div>
+                  
+                  
+    </div>
+        
+
+    <script>
+        
+     document.querySelectorAll('.knob').forEach(knob => {
+    let isDragging = false;
+    let initialAngle = 0;
+    let currentRotation = 0;
+
+    function startDrag(e) {
+        isDragging = true;
+        e.preventDefault(); // Prevent default touch actions
+        const touch = e.touches ? e.touches[0] : e; // Handle touch or mouse event
+        const rect = knob.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        initialAngle = Math.atan2(touch.clientY - centerY, touch.clientX - centerX);
+    }
+
+    function drag(e) {
+        if (!isDragging) return;
+        const touch = e.touches ? e.touches[0] : e; // Handle touch or mouse event
+        const rect = knob.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const currentAngle = Math.atan2(touch.clientY - centerY, touch.clientX - centerX);
+        const deltaAngle = currentAngle - initialAngle;
+        currentRotation += deltaAngle * (180 / Math.PI);
+        knob.style.transform = `rotate(${currentRotation}deg)`;
+        initialAngle = currentAngle; // Update initialAngle for continuous rotation
+    }
+
+    function endDrag() {
+        isDragging = false;
+    }
+
+    // Add event listeners for mouse
+    knob.addEventListener('mousedown', startDrag);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', endDrag);
+
+    // Add event listeners for touch
+    knob.addEventListener('touchstart', startDrag);
+    document.addEventListener('touchmove', drag);
+    document.addEventListener('touchend', endDrag);
+});
+    </script>
+    
+    
+
+ 
+</div>
+
+<script>
+    function displayPhoto(event) {
+        const photoPreview = document.getElementById('witness-photo');
+        photoPreview.src = URL.createObjectURL(event.target.files[0]);
+        photoPreview.style.display = 'block';
+        photoPreview.onload = () => {
+            URL.revokeObjectURL(photoPreview.src);
+        };
+    }
+</script>
+<script>
+    let audioContext;
+    let backgroundOscillator;
+    let beepOscillator;
+    let beepIntervalId;
+
+    function startBackgroundAndBeeps() {
+        const backgroundFrequency = 440; // Background frequency in Hz
+        const beepFrequency = 880;       // Beep frequency in Hz
+        const beepInterval = 1000;       // Beep interval in milliseconds
+
+        if (!audioContext) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+
+        // Stop existing oscillators and intervals if any
+        if (backgroundOscillator) {
+            backgroundOscillator.stop();
+        }
+        if (beepIntervalId) {
+            clearInterval(beepIntervalId);
+        }
+
+        // Play background frequency indefinitely
+        backgroundOscillator = audioContext.createOscillator();
+        backgroundOscillator.type = 'sine';
+        backgroundOscillator.frequency.setValueAtTime(backgroundFrequency, audioContext.currentTime);
+        backgroundOscillator.connect(audioContext.destination);
+        backgroundOscillator.start();
+
+        // Play intermittent beeps
+        beepIntervalId = setInterval(() => {
+            beepOscillator = audioContext.createOscillator();
+            beepOscillator.type = 'sine';
+            beepOscillator.frequency.setValueAtTime(beepFrequency, audioContext.currentTime);
+            beepOscillator.connect(audioContext.destination);
+            beepOscillator.start();
+            beepOscillator.stop(audioContext.currentTime + 0.1); // Beep duration (0.1 seconds)
+        }, beepInterval);
+    }
+
+    // Start background sound and beeps when the page loads
+    window.onload = startBackgroundAndBeeps;
+
+    function displayPhoto(event) {
+        const photoPreview = document.getElementById('witness-photo');
+        photoPreview.src = URL.createObjectURL(event.target.files[0]);
+        photoPreview.style.display = 'block';
+        photoPreview.onload = () => {
+            URL.revokeObjectURL(photoPreview.src);
+        };
+    }
+</script>
+    
+
+</body>
+</html>
